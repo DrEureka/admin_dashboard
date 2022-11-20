@@ -1,0 +1,5 @@
+Services = hacer peticiones http / guardar en local / jwebtoken
+Providers = gestores de estados.
+Router = manejo de vistas.
+
+ui = vistas y public styles.
