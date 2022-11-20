@@ -5,22 +5,20 @@ class BackgroundLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      color: null,
+      //metodo para poner una imagen de fondo que se cuentra el "decocation: buildboxdecoration"
+      decoration: buildBoxDecoration(),
       child: Container(
-        color: null,
-        //metodo para poner una imagen de fondo que se cuentra el "decocation: buildboxdecoration"
-        decoration: buildBoxDecoration(),
-        child: Container(
-          constraints: BoxConstraints(maxWidth: 400),
-          //el siguiente child es para poner el logo de la app
-          
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Image(
-                image: AssetImage('twitter-white-logo.png'),
-                width: 200,
-              ),
+        constraints: BoxConstraints(maxWidth: 400),
+        //el siguiente child es para poner el logo de la app
+
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Image(
+              image: AssetImage('twitter-white-logo.png'),
+              width: 200,
             ),
           ),
         ),

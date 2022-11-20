@@ -17,7 +17,8 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
     return ChangeNotifierProvider(
-      create: (_) => LoginFormProvider(),
+      create: (_) =>
+          LoginFormProvider(), //si necesitara utilizar el parametro en LoginFromProvider puedo usar authProvider
       child: Builder(builder: (context) {
         //llamo a la instancia del provider para poder usarla
         final loginFormProvider =
@@ -84,7 +85,12 @@ class LoginView extends StatelessWidget {
                     ),
                     CustomOutlinedButton(
                         onPressed: () {
-                          loginFormProvider.validateForm();
+                          //Validador de login version 2 o version simple
+                          final isValid = loginFormProvider.validateForm();
+                          if (isValid)
+                            // ignore: curly_braces_in_flow_control_structures
+                            authProvider.login(loginFormProvider.email,
+                                loginFormProvider.password);
                         },
                         text: 'Ingresar'),
                     // ignore: prefer_const_constructors

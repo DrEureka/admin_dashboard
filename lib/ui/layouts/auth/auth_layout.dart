@@ -55,7 +55,7 @@ class _MobileBody extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            height: 450,
+            height: 400,
             child: BackgroundLayer(),
           ),
         ],
@@ -81,7 +81,7 @@ class _DesktopBody extends StatelessWidget {
       child: Row(
         children: [
           //izquierda imagen
-          BackgroundLayer(),
+          Expanded(child: BackgroundLayer()),
           //derecha login y formulario
           Container(
             width: 600,
