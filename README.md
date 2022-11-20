@@ -1,16 +1,20 @@
+# Dashboard con flutter multiplataforma
+<em> flutter web </em>
+
+
+## :hammer: En construcción
+- `------`: 
+
+
+## 📁 Acceso al proyecto
+-https://???
+
+## :green_book: Tecnologias utilizadas
+- `Flutter`
+- `MongoDB o PHP Api`
+
+## :memo: Programador/programmer
+:v: Daniel Ramandan.
+
+
 # admin_dashboard
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
