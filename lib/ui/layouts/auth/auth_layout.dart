@@ -20,10 +20,11 @@ class AuthLayout extends StatelessWidget {
           //el physics es para que no se pueda hacer scroll
           physics: const ClampingScrollPhysics(),
           children: [
-            (size.width > 1000)
+            (size.width > 1000 && size.height > 700)
                 ? _DesktopBody(child: child)
                 //mobile
                 : _MobileBody(child: child),
+
             //links o map site
             LinksBar(),
           ],
@@ -49,12 +50,12 @@ class _MobileBody extends StatelessWidget {
           CustomTitle(),
           Container(
             width: double.infinity,
-            height: 400,
+            height: 430,
             child: child,
           ),
           Container(
             width: double.infinity,
-            height: 420,
+            height: 450,
             child: BackgroundLayer(),
           ),
         ],

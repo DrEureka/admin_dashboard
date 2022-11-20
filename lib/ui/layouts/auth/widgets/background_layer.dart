@@ -13,6 +13,7 @@ class BackgroundLayer extends StatelessWidget {
         child: Container(
           constraints: BoxConstraints(maxWidth: 400),
           //el siguiente child es para poner el logo de la app
+          
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),

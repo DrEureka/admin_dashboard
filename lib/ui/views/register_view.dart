@@ -11,7 +11,7 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 50),
+      margin: EdgeInsets.only(top: 30),
       padding: EdgeInsets.symmetric(horizontal: 20),
       color: Colors.black,
       child: Center(
