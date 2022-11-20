@@ -1,5 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../providers/auth_provider.dart';
 import '../../providers/login_from_provider.dart';
 
 import '../../router/router.dart';
@@ -13,11 +15,13 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return ChangeNotifierProvider(
       create: (_) => LoginFormProvider(),
       child: Builder(builder: (context) {
         //llamo a la instancia del provider para poder usarla
-        final loginFormProvider = Provider.of<LoginFormProvider>(context);
+        final loginFormProvider =
+            Provider.of<LoginFormProvider>(context, listen: false);
 
         return Container(
           margin: EdgeInsets.only(top: 50),
@@ -27,12 +31,21 @@ class LoginView extends StatelessWidget {
             child: Container(
               constraints: BoxConstraints(maxWidth: 370),
               child: Form(
+                autovalidateMode: AutovalidateMode.always,
                 //validador de login con la llave global formkey
                 key: loginFormProvider.formkey,
                 child: Column(
                   children: [
                     //Email
                     TextFormField(
+                      //validador de formato de mail
+                      validator: (value) {
+                        if (!EmailValidator.validate(value ?? ''))
+                          return 'Email no valido';
+                        return null;
+                      },
+                      onChanged: (value) => loginFormProvider.email = value,
+
                       //falta validador de email
                       style: TextStyle(color: Colors.white),
                       decoration: CustomInputs.loginInputDecoration(
@@ -41,10 +54,11 @@ class LoginView extends StatelessWidget {
                           icon: Icons.email_outlined),
                     ),
                     //separator los campos
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     //Contraseña
                     TextFormField(
                       //validador de clave
+                      onChanged: (value) => loginFormProvider.password = value,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Ingrese su contraseña';
@@ -55,7 +69,10 @@ class LoginView extends StatelessWidget {
 
                         return null; //si es null es correcto
                       },
+                      //obscureText sirve para ocultar contraseña del form
+                      obscureText: true,
                       style: TextStyle(color: Colors.white),
+
                       decoration: CustomInputs.loginInputDecoration(
                           hint: '*********',
                           label: 'Contraseña',
@@ -63,7 +80,7 @@ class LoginView extends StatelessWidget {
                     ),
                     // ignore: prefer_const_constructors
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     CustomOutlinedButton(
                         onPressed: () {
@@ -72,7 +89,7 @@ class LoginView extends StatelessWidget {
                         text: 'Ingresar'),
                     // ignore: prefer_const_constructors
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     LinkText(
                       text: 'Nueva Cuenta',
@@ -81,7 +98,6 @@ class LoginView extends StatelessWidget {
                         Navigator.pushNamed(context, Flurorauter.registerRoute);
                       },
                     ),
-                    //Validator(),
                   ],
                 ),
               ),
