@@ -1,5 +1,5 @@
 # Dashboard con flutter multiplataforma
-<em> flutter web </em>
+<em> Flutter Web </em>
 
 
 ## :hammer: En construcción
