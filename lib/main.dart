@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: Flurorauter.router.generator,
       builder: (_, child) {
         //recibe el child que es el widget que se va a mostrar
-        return AuthLayout();
+        return AuthLayout(child: child!);
       },
     );
   }
