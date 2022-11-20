@@ -18,7 +18,7 @@ class LinksBar extends StatelessWidget {
               text: 'Nosotros',
               //funcion onPressed que recibe un void que lo muestra en consola en este caso.
               onPressed: () {
-                print('Nosotros');
+                // print('Nosotros');
               }),
           LinkText(text: 'Registro'),
           LinkText(text: 'Login'),
