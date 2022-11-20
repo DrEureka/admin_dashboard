@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_title.dart';
+import 'package:admin_dashboard/ui/layouts/auth/widgets/links_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:admin_dashboard/ui/layouts/auth/widgets/background_layer.dart';
 
@@ -8,17 +9,57 @@ class AuthLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
-        //el listview es para que se pueda hacer scroll y sepa que tipo de pantalla es
-        body: ListView(
-      //el physics es para que no se pueda hacer scroll
-      physics: const ClampingScrollPhysics(),
-      children: [
-        _DesktopBody(child: child),
-        //mobile
-        //links o map site
-      ],
-    ));
+      //el listview es para que se pueda hacer scroll y sepa que tipo de pantalla es
+      body: Scrollbar(
+        //barra de scroll color gris fija
+        thumbVisibility: true,
+
+        child: ListView(
+          //el physics es para que no se pueda hacer scroll
+          physics: const ClampingScrollPhysics(),
+          children: [
+            (size.width > 1000)
+                ? _DesktopBody(child: child)
+                //mobile
+                : _MobileBody(child: child),
+            //links o map site
+            LinksBar(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+//Modo celu
+class _MobileBody extends StatelessWidget {
+  final Widget child;
+  const _MobileBody({required this.child, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          CustomTitle(),
+          Container(
+            width: double.infinity,
+            height: 400,
+            child: child,
+          ),
+          Container(
+            width: double.infinity,
+            height: 420,
+            child: BackgroundLayer(),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -34,8 +75,8 @@ class _DesktopBody extends StatelessWidget {
     return Container(
       //tamaño de la pantalla
       width: size.width,
-      height: size.height,
-      color: Colors.red,
+      height: size.height * 0.94,
+      color: Colors.black,
       child: Row(
         children: [
           //izquierda imagen

@@ -15,14 +15,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      title: 'Admin Dashboard',
-      initialRoute: Flurorauter.rootRoute,
-      onGenerateRoute: Flurorauter.router.generator,
-      builder: (_, child) {
-        //recibe el child que es el widget que se va a mostrar
-        return AuthLayout(child: child!);
-      },
-    );
+        debugShowCheckedModeBanner: true,
+        title: 'Admin Dashboard',
+        initialRoute: Flurorauter.rootRoute,
+        onGenerateRoute: Flurorauter.router.generator,
+        builder: (_, child) {
+          //recibe el child que es el widget que se va a mostrar
+          return AuthLayout(child: child!);
+        },
+        //barra de scroll color gris
+        theme: ThemeData.light().copyWith(
+          scrollbarTheme: ScrollbarThemeData().copyWith(
+            thumbColor:
+                MaterialStateProperty.all(Color.fromARGB(110, 207, 201, 201)),
+          ),
+        ));
   }
 }
