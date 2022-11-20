@@ -94,9 +94,7 @@ class _DesktopBody extends StatelessWidget {
                   height: 20,
                 ),
                 CustomTitle(),
-                SizedBox(
-                  height: 50,
-                ),
+                //  SizedBox( height: 50,              ),
                 //formulario
                 //traigo el child del formulario del login
                 Expanded(child: child)

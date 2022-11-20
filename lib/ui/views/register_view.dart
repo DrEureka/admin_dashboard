@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import '../../router/router.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
+import 'package:flutter/material.dart';
 
+import '../../router/router.dart';
 import '../buttons/custom_outlined_button.dart';
 import '../inputs/custom_inputs.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +20,26 @@ class LoginView extends StatelessWidget {
           child: Form(
               child: Column(
             children: [
+              //Nombre
+              TextFormField(
+                style: TextStyle(color: Colors.white),
+                decoration: CustomInputs.loginInputDecoration(
+                    hint: 'Ingrese su nombre',
+                    label: 'Nombre',
+                    icon: Icons.person_outline),
+              ),
+//separator los campos
+              SizedBox(height: 20),
+//apellido
+              TextFormField(
+                style: TextStyle(color: Colors.white),
+                decoration: CustomInputs.loginInputDecoration(
+                    hint: 'Ingrese su apellido',
+                    label: 'Apellido',
+                    icon: Icons.person_outline),
+              ),
+//separator los campos
+              SizedBox(height: 20),
               //Email
               TextFormField(
                 style: TextStyle(color: Colors.white),
@@ -41,15 +61,14 @@ class LoginView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              CustomOutlinedButton(onPressed: () {}, text: 'Ingresar'),
+              CustomOutlinedButton(onPressed: () {}, text: 'Crear cuenta'),
               SizedBox(
                 height: 10,
               ),
               LinkText(
-                text: 'Nueva Cuenta',
+                text: 'Volver al login',
                 onPressed: () {
-                  //metodo de fluro para navegar a la ruta de registro
-                  Navigator.pushNamed(context, Flurorauter.registerRoute);
+                  Navigator.pushNamed(context, Flurorauter.loginRoute);
                 },
               ),
 
