@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/side_menu_provider.dart';
 import 'package:admin_dashboard/ui/shared/widgets/logo.dart';
 import 'package:admin_dashboard/ui/shared/widgets/menu_items.dart';
 import 'package:admin_dashboard/ui/shared/widgets/text_separator.dart';
@@ -25,7 +26,8 @@ class SideBar extends StatelessWidget {
             icon: Icons.compass_calibration_outlined,
             //isActive permite saber si esta activo o no
             //  isActive: false,
-            onPressed: () {},
+            //Llamo a mi SideMenu Provider y cierro el menu
+            onPressed: () => SideMenuProvider.closeMenu(),
           ),
           MenuItems(
             text: 'Solicitudes',

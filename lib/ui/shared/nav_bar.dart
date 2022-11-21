@@ -3,6 +3,8 @@ import 'package:admin_dashboard/ui/shared/widgets/notifications_indicator.dart';
 import 'package:admin_dashboard/ui/shared/widgets/search_text.dart';
 import 'package:admin_dashboard/ui/shared/widgets/nav_bar_avatar.dart';
 
+import '../../providers/side_menu_provider.dart';
+
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
 
@@ -20,12 +22,13 @@ class NavBar extends StatelessWidget {
           if (size.width <= 700)
             //Icono de menu
             IconButton(
-              onPressed: () {},
+              //llamo a la funcion side menu provider para la apertura
+              onPressed: () => SideMenuProvider.openMenu(),
               icon: const Icon(Icons.menu_outlined),
             ),
           const SizedBox(width: 5),
           //buscador input
-          if (size.width > 554)
+          if (size.width > 370)
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 250),
               child: const SearchText(),
