@@ -11,7 +11,7 @@ class SplashLayout extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          CircularProgressIndicator(),
+          const CircularProgressIndicator(),
           const SizedBox(height: 20),
           Text('Cheking...', style: GoogleFonts.roboto(fontSize: 15)),
         ]),

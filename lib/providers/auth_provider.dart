@@ -15,6 +15,7 @@ class AuthProvider with ChangeNotifier {
     isAuthenticated();
   }
   login(String email, String password) {
+    // ignore: todo
     //TODO: Peticion http
 
     _token = '23232323232fadasmdkajdklasjdklada,sd,asm,dassef';
@@ -23,6 +24,7 @@ class AuthProvider with ChangeNotifier {
     // print('Token JWT: $_token');
     //busco la JWT en el local storage
     LocalStorage.prefs.getString('token');
+    // ignore: todo
     //TODO: Guardar token en lugar seguro y tiene que ir al dashboard
     authStatus = AuthStatus.authenticated;
     notifyListeners();
@@ -37,8 +39,9 @@ class AuthProvider with ChangeNotifier {
       notifyListeners();
       return false;
     }
+    // ignore: todo
     //TODO: IR AL BACKEND Y COMPROBAR CONTRASEÑA/JWT
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 1500));
     authStatus = AuthStatus.authenticated;
     notifyListeners();
     return true;

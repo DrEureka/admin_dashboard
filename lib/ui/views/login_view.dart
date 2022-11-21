@@ -25,12 +25,12 @@ class LoginView extends StatelessWidget {
             Provider.of<LoginFormProvider>(context, listen: false);
 
         return Container(
-          margin: EdgeInsets.only(top: 50),
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           color: Colors.black,
           child: Center(
             child: Container(
-              constraints: BoxConstraints(maxWidth: 370),
+              constraints: const BoxConstraints(maxWidth: 370),
               child: Form(
                 autovalidateMode: AutovalidateMode.always,
                 //validador de login con la llave global formkey
@@ -41,21 +41,22 @@ class LoginView extends StatelessWidget {
                     TextFormField(
                       //validador de formato de mail
                       validator: (value) {
-                        if (!EmailValidator.validate(value ?? ''))
+                        if (!EmailValidator.validate(value ?? '')) {
                           return 'Email no valido';
+                        }
                         return null;
                       },
                       onChanged: (value) => loginFormProvider.email = value,
 
                       //falta validador de email
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: CustomInputs.loginInputDecoration(
                           hint: 'Ingrese su correo',
                           label: 'Email',
                           icon: Icons.email_outlined),
                     ),
                     //separator los campos
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     //Contraseña
                     TextFormField(
                       //validador de clave
@@ -72,7 +73,7 @@ class LoginView extends StatelessWidget {
                       },
                       //obscureText sirve para ocultar contraseña del form
                       obscureText: true,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
 
                       decoration: CustomInputs.loginInputDecoration(
                           hint: '*********',

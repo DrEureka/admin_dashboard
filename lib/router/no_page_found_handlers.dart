@@ -3,6 +3,6 @@ import 'package:fluro/fluro.dart';
 
 class NoPageFoundHandlers {
   static Handler noPageFound = Handler(handlerFunc: (context, paramrs) {
-    return NoPageFoundView();
+    return const NoPageFoundView();
   });
 }

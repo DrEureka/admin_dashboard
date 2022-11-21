@@ -26,7 +26,7 @@ class AuthLayout extends StatelessWidget {
                 : _MobileBody(child: child),
 
             //links o map site
-            LinksBar(),
+            const LinksBar(),
           ],
         ),
       ),
@@ -37,7 +37,7 @@ class AuthLayout extends StatelessWidget {
 //Modo celu
 class _MobileBody extends StatelessWidget {
   final Widget child;
-  const _MobileBody({required this.child, super.key});
+  const _MobileBody({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +46,14 @@ class _MobileBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 20),
-          CustomTitle(),
-          Container(
+          const SizedBox(height: 20),
+          const CustomTitle(),
+          SizedBox(
             width: double.infinity,
             height: 430,
             child: child,
           ),
-          Container(
+          const SizedBox(
             width: double.infinity,
             height: 400,
             child: BackgroundLayer(),
@@ -67,7 +67,7 @@ class _MobileBody extends StatelessWidget {
 class _DesktopBody extends StatelessWidget {
   //solicito el child del layout
   final Widget child;
-  const _DesktopBody({required this.child, super.key});
+  const _DesktopBody({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class _DesktopBody extends StatelessWidget {
       child: Row(
         children: [
           //izquierda imagen
-          Expanded(child: BackgroundLayer()),
+          const Expanded(child: BackgroundLayer()),
           //derecha login y formulario
           Container(
             width: 600,
@@ -91,10 +91,10 @@ class _DesktopBody extends StatelessWidget {
               children: [
                 //titulo
                 //logo y titulo de la app en la parte superior escalado
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                CustomTitle(),
+                const CustomTitle(),
                 //  SizedBox( height: 50,              ),
                 //formulario
                 //traigo el child del formulario del login

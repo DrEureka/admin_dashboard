@@ -10,18 +10,18 @@ class AdminHandlers {
   static Handler login = Handler(handlerFunc: (context, paramrs) {
     final authProvider = Provider.of<AuthProvider>(context!);
     if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-      return LoginView();
+      return const LoginView();
     } else {
-      return RootDashboardView();
+      return const RootDashboardView();
     }
   });
 
   static Handler register = Handler(handlerFunc: (context, paramrs) {
     final authProvider = Provider.of<AuthProvider>(context!);
     if (authProvider.authStatus == AuthStatus.notAuthenticated) {
-      return RegisterView();
+      return const RegisterView();
     } else {
-      return RootDashboardView();
+      return const RootDashboardView();
     }
   });
 }

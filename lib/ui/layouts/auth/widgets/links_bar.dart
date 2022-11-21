@@ -20,12 +20,12 @@ class LinksBar extends StatelessWidget {
               onPressed: () {
                 // print('Nosotros');
               }),
-          LinkText(text: 'Registro'),
-          LinkText(text: 'Login'),
-          LinkText(text: 'Atención al cliente'),
-          LinkText(text: 'Contacto'),
-          LinkText(text: 'Terminos y condiciones'),
-          LinkText(text: 'Status'),
+          const LinkText(text: 'Registro'),
+          const LinkText(text: 'Login'),
+          const LinkText(text: 'Atención al cliente'),
+          const LinkText(text: 'Contacto'),
+          const LinkText(text: 'Terminos y condiciones'),
+          const LinkText(text: 'Status'),
         ],
       ),
     );

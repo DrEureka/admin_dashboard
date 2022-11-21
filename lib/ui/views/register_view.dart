@@ -21,12 +21,12 @@ class RegisterView extends StatelessWidget {
             Provider.of<RegisterFormProvider>(context, listen: false);
 
         return Container(
-          margin: EdgeInsets.only(top: 20),
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           color: Colors.black,
           child: Center(
             child: Container(
-              constraints: BoxConstraints(maxWidth: 370),
+              constraints: const BoxConstraints(maxWidth: 370),
               child: Form(
                   autovalidateMode: AutovalidateMode.always,
                   key: registerFormProvider.formkey,
@@ -43,14 +43,14 @@ class RegisterView extends StatelessWidget {
 
                           return null; //si es null es correcto
                         },
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
                             hint: 'Ingrese su nombre',
                             label: 'Nombre*',
                             icon: Icons.person_outline),
                       ),
 //separator los campos
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
 //apellido
                       TextFormField(
                         onChanged: (value) =>
@@ -62,32 +62,33 @@ class RegisterView extends StatelessWidget {
 
                           return null; //si es null es correcto
                         },
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
                             hint: 'Ingrese su apellido',
                             label: 'Apellido*',
                             icon: Icons.person_outline),
                       ),
 //separator los campos
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       //Email
                       TextFormField(
                         //validador de formato de mail
                         validator: (value) {
-                          if (!EmailValidator.validate(value ?? ''))
+                          if (!EmailValidator.validate(value ?? '')) {
                             return 'Email no valido';
+                          }
                           return null;
                         },
                         onChanged: (value) =>
                             registerFormProvider.email = value,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
                             hint: 'Ingrese su correo',
                             label: 'Email*',
                             icon: Icons.email_outlined),
                       ),
 //separator los campos
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       //Contraseña
                       TextFormField(
                         //validador de clave
@@ -105,13 +106,13 @@ class RegisterView extends StatelessWidget {
                         },
                         //obscureText sirve para ocultar contraseña del form
                         obscureText: true,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
                             hint: '*********',
                             label: 'Contraseña*',
                             icon: Icons.lock_outlined),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       CustomOutlinedButton(
@@ -119,7 +120,7 @@ class RegisterView extends StatelessWidget {
                             registerFormProvider.validateForm();
                           },
                           text: 'Crear cuenta'),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       LinkText(

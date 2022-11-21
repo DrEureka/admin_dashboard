@@ -9,9 +9,10 @@ import '../ui/views/root_dashboard_view.dart';
 class DashbordHandlers {
   static Handler main = Handler(handlerFunc: (context, paramrs) {
     final authProvider = Provider.of<AuthProvider>(context!);
-    if (authProvider.authStatus == AuthStatus.authenticated)
-      return RootDashboardView();
-    else
-      return LoginView();
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      return const RootDashboardView();
+    } else {
+      return const LoginView();
+    }
   });
 }

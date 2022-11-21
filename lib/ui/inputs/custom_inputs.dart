@@ -17,7 +17,7 @@ class CustomInputs {
       labelText: label,
       prefixIcon: Icon(icon, color: Colors.white.withOpacity(0.7)),
       labelStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
-      hintStyle: TextStyle(color: Colors.grey),
+      hintStyle: const TextStyle(color: Colors.grey),
     );
   }
 }
