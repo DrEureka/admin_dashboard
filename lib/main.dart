@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
+import 'package:admin_dashboard/ui/layouts/splash/spash_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:admin_dashboard/providers/auth_provider.dart';
@@ -25,7 +26,7 @@ class AppSate extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(lazy: false, create: (_) => AuthProvider()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     );
   }
 }
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           final authProvider = Provider.of<AuthProvider>(context);
           if (authProvider.authStatus == AuthStatus.checking) {
-            return Center(child: Text('Checking...'));
+            return const SplashLayout();
           }
 
           if (authProvider.authStatus == AuthStatus.authenticated) {
@@ -63,9 +64,9 @@ class MyApp extends StatelessWidget {
         },
         //barra de scroll color gris
         theme: ThemeData.light().copyWith(
-          scrollbarTheme: ScrollbarThemeData().copyWith(
-            thumbColor:
-                MaterialStateProperty.all(Color.fromARGB(110, 207, 201, 201)),
+          scrollbarTheme: const ScrollbarThemeData().copyWith(
+            thumbColor: MaterialStateProperty.all(
+                const Color.fromARGB(110, 207, 201, 201)),
           ),
         ));
   }

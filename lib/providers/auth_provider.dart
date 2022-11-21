@@ -1,4 +1,7 @@
+import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/services/local_storage.dart';
+import 'package:admin_dashboard/services/navigation_service.dart';
+
 import 'package:flutter/material.dart';
 
 //se crea un numerador de posibilidades
@@ -21,8 +24,11 @@ class AuthProvider with ChangeNotifier {
     //busco la JWT en el local storage
     LocalStorage.prefs.getString('token');
     //TODO: Guardar token en lugar seguro y tiene que ir al dashboard
-
+    authStatus = AuthStatus.authenticated;
     notifyListeners();
+    // authStatus = AuthStatus.authenticated;
+    // isAuthenticated();
+    NavigationService.replaceTo(Flurorauter.dashboardRoute);
   }
 
   Future<bool> isAuthenticated() async {
@@ -32,7 +38,7 @@ class AuthProvider with ChangeNotifier {
       return false;
     }
     //TODO: IR AL BACKEND Y COMPROBAR CONTRASEÑA/JWT
-    await Future.delayed(Duration(milliseconds: 1000));
+    await Future.delayed(Duration(milliseconds: 1500));
     authStatus = AuthStatus.authenticated;
     notifyListeners();
     return true;
