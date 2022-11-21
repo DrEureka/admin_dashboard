@@ -6,7 +6,10 @@ class RootDashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Root Dashboard View'),
+      child: Text(
+        'Root Dashboard View',
+        
+      ),
     );
   }
 }

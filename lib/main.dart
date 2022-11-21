@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: true,
+        debugShowCheckedModeBanner: false,
         title: 'Admin Dashboard',
         initialRoute: Flurorauter.rootRoute,
         onGenerateRoute: Flurorauter.router.generator,
