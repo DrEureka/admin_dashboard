@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:admin_dashboard/api/ConnApi.dart';
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:admin_dashboard/ui/layouts/splash/spash_layout.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/services/local_storage.dart';
@@ -12,6 +13,9 @@ import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 void main() async {
   //Local storage para guardar las preferencias del usuario.
   await LocalStorage.configurePrefs();
+
+  //llamo la conexion de api
+  ConnApi.configureDio();
   //Llamo a la funcion configureRoutes
   Flurorouter.configureRoutes();
   //Ejecuto la App
