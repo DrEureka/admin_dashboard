@@ -7,7 +7,7 @@
 
 
 ## 📁 Acceso al proyecto
--https://???
+-https://sensational-genie-165e7a.netlify.app/#/
 
 ## :green_book: Tecnologias utilizadas
 - `Flutter`
