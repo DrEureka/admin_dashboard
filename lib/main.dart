@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/side_menu_provider.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:admin_dashboard/ui/layouts/splash/spash_layout.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,8 @@ class AppSate extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(lazy: false, create: (_) => AuthProvider()),
+        //Agrego el provider de SideMenu y permite que se actualice mostrando false para activar los items del menu
+        ChangeNotifierProvider(lazy: false, create: (_) => SideMenuProvider()),
       ],
       child: const MyApp(),
     );

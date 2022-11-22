@@ -5,6 +5,7 @@ import 'package:admin_dashboard/ui/shared/widgets/menu_items.dart';
 import 'package:admin_dashboard/ui/shared/widgets/text_separator.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../router/router.dart';
 
@@ -18,6 +19,8 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sideMenuProvider = Provider.of<SideMenuProvider>(context);
+
     return Container(
       width: 200,
       height: double.infinity,
@@ -31,6 +34,8 @@ class SideBar extends StatelessWidget {
           //Menu
           const TextSeparator(text: 'Main'),
           MenuItems(
+            isActive:
+                sideMenuProvider.currentPage == Flurorouter.dashboardRoute,
             text: 'DashBoard',
             icon: Icons.compass_calibration_outlined,
             //isActive permite saber si esta activo o no
@@ -41,6 +46,8 @@ class SideBar extends StatelessWidget {
                 NavigationService.navigateTo(Flurorouter.dashboardRoute),
           ),
           MenuItems(
+            isActive:
+                sideMenuProvider.currentPage == Flurorouter.solicitudesRoute,
             text: 'Solicitudes',
             icon: Icons.question_answer_outlined,
             //isActive permite saber si esta activo o no
@@ -49,6 +56,7 @@ class SideBar extends StatelessWidget {
                 NavigationService.navigateTo(Flurorouter.solicitudesRoute),
           ),
           MenuItems(
+            isActive: sideMenuProvider.currentPage == Flurorouter.designRoute,
             text: 'Diseños',
             icon: Icons.image_outlined,
             //isActive permite saber si esta activo o no
@@ -57,6 +65,8 @@ class SideBar extends StatelessWidget {
                 NavigationService.navigateTo(Flurorouter.designRoute),
           ),
           MenuItems(
+            //isactive permite saber si esta activo o no y se encuentra en el provider
+            isActive: sideMenuProvider.currentPage == Flurorouter.pedidosRoute,
             text: 'Pedidos',
             icon: Icons.shopping_cart_outlined,
             //isActive permite saber si esta activo o no
