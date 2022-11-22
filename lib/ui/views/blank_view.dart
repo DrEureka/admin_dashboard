@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../cards/white_card.dart';
 import '../labels/custom_labels.dart';
 
-class RootDashboardView extends StatelessWidget {
-  const RootDashboardView({super.key});
+//Pagina base para el dashboard
+class BlankView extends StatelessWidget {
+  const BlankView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class RootDashboardView extends StatelessWidget {
       // ignore: prefer_const_literals_to_create_immutables
       children: [
         // ignore: prefer_const_constructors
-        Text('Root Dashboard view', style: CustomLabels.h1),
+        Text('BlankView - Pagina base', style: CustomLabels.h1),
         const SizedBox(
           height: 10,
         ),
