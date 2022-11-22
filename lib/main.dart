@@ -12,7 +12,7 @@ void main() async {
   //Local storage para guardar las preferencias del usuario.
   await LocalStorage.configurePrefs();
   //Llamo a la funcion configureRoutes
-  Flurorauter.configureRoutes();
+  Flurorouter.configureRoutes();
   //Ejecuto la App
   runApp(const AppSate());
 }
@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Admin Dashboard',
-        initialRoute: Flurorauter.rootRoute,
-        onGenerateRoute: Flurorauter.router.generator,
+        initialRoute: Flurorouter.rootRoute,
+        onGenerateRoute: Flurorouter.router.generator,
         navigatorKey: NavigationService.navigatorKey,
         builder: (_, child) {
           final authProvider = Provider.of<AuthProvider>(context);

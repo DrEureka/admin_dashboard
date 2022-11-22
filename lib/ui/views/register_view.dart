@@ -126,7 +126,7 @@ class RegisterView extends StatelessWidget {
                       LinkText(
                         text: 'Volver al login',
                         onPressed: () {
-                          Navigator.pushNamed(context, Flurorauter.loginRoute);
+                          Navigator.pushNamed(context, Flurorouter.loginRoute);
                         },
                       ),
 

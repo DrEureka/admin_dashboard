@@ -1,10 +1,19 @@
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
+import 'package:admin_dashboard/services/navigation_service.dart';
 import 'package:admin_dashboard/ui/shared/widgets/logo.dart';
 import 'package:admin_dashboard/ui/shared/widgets/menu_items.dart';
 import 'package:admin_dashboard/ui/shared/widgets/text_separator.dart';
+
 import 'package:flutter/material.dart';
 
+import '../../router/router.dart';
+
 class SideBar extends StatelessWidget {
+  void navigateTo(String routeName) {
+    NavigationService.navigateTo(routeName);
+    SideMenuProvider.closeMenu();
+  }
+
   const SideBar({super.key});
 
   @override
@@ -27,28 +36,33 @@ class SideBar extends StatelessWidget {
             //isActive permite saber si esta activo o no
             //  isActive: false,
             //Llamo a mi SideMenu Provider y cierro el menu
-            onPressed: () => SideMenuProvider.closeMenu(),
+
+            onPressed: () =>
+                NavigationService.navigateTo(Flurorouter.dashboardRoute),
           ),
           MenuItems(
             text: 'Solicitudes',
             icon: Icons.question_answer_outlined,
             //isActive permite saber si esta activo o no
             //  isActive: false,
-            onPressed: () {},
+            onPressed: () =>
+                NavigationService.navigateTo(Flurorouter.solicitudesRoute),
           ),
           MenuItems(
             text: 'Diseños',
             icon: Icons.image_outlined,
             //isActive permite saber si esta activo o no
             //  isActive: false,
-            onPressed: () {},
+            onPressed: () =>
+                NavigationService.navigateTo(Flurorouter.designRoute),
           ),
           MenuItems(
             text: 'Pedidos',
             icon: Icons.shopping_cart_outlined,
             //isActive permite saber si esta activo o no
             //  isActive: false,
-            onPressed: () {},
+            onPressed: () =>
+                NavigationService.navigateTo(Flurorouter.pedidosRoute),
           ),
           const SizedBox(height: 50),
           const TextSeparator(text: 'Administración'),
@@ -73,8 +87,9 @@ class SideBar extends StatelessWidget {
             //  isActive: false,
             onPressed: () {},
           ),
-          const TextSeparator(text: ''),
+          const SizedBox(height: 50),
 
+          const TextSeparator(text: 'Salir'),
           MenuItems(
             text: 'Cerrar Sesión',
             icon: Icons.logout_outlined,
