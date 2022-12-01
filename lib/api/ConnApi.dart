@@ -7,7 +7,7 @@ class ConnApi {
 
   static void configureDio() {
     //falta ingresar la url de la api php.
-    _dio.options.baseUrl = 'https://127.0.0.1:8000/api';
+    _dio.options.baseUrl = 'http://localhost:8080/api';
 
     // Configurar headedrs peticiones
     _dio.options.headers = {
@@ -18,6 +18,7 @@ class ConnApi {
   //el path es el endpoint de la api en este caso hago un get
   static Future httpGet(String path) async {
     try {
+      print('La base esta conectada');
       final resp = await _dio.get(path);
       return resp.data;
     } catch (e) {
@@ -30,6 +31,7 @@ class ConnApi {
     final formData = FormData.fromMap(data);
     try {
       final resp = await _dio.post(path, data: formData);
+
       return resp.data;
     } catch (e) {
       print('Error POST: $e');

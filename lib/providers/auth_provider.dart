@@ -34,17 +34,16 @@ class AuthProvider with ChangeNotifier {
     NavigationService.replaceTo(Flurorouter.dashboardRoute);
   }
 
-  register(String email, String password, String nombre, String apellido) {
+  register(String email, String password, String nombre) {
     //aca mando lo que quiero grabar en la api
     final data = {
       'nombre': nombre,
-      'apellido': apellido,
       'email': email,
       'password': password,
     };
 
-    ConnApi.post('/usuarios', data).then((json) {
-      print(json);
+    ConnApi.post('/usuarios/', data).then((json) {
+      print('json');
     }).catchError((e) {
       print('Error en: $e');
       //Mostrar un mensaje de error

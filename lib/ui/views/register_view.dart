@@ -52,23 +52,7 @@ class RegisterView extends StatelessWidget {
                       ),
 //separator los campos
                       const SizedBox(height: 10),
-//apellido
-                      TextFormField(
-                        onChanged: (value) =>
-                            registerFormProvider.apellido = value,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Debe ingresar su Apellido';
-                          }
 
-                          return null; //si es null es correcto
-                        },
-                        style: const TextStyle(color: Colors.white),
-                        decoration: CustomInputs.loginInputDecoration(
-                            hint: 'Ingrese su apellido',
-                            label: 'Apellido*',
-                            icon: Icons.person_outline),
-                      ),
 //separator los campos
                       const SizedBox(height: 10),
                       //Email
@@ -127,10 +111,10 @@ class RegisterView extends StatelessWidget {
 
                             //TODO: llamar al backend para crear el usuario
                             authProvider.register(
-                                registerFormProvider.email,
-                                registerFormProvider.password,
-                                registerFormProvider.nombre,
-                                registerFormProvider.apellido);
+                              registerFormProvider.email,
+                              registerFormProvider.password,
+                              registerFormProvider.nombre,
+                            );
                           },
                           text: 'Crear cuenta'),
                       const SizedBox(
