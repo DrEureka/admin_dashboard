@@ -2,8 +2,11 @@ import 'package:admin_dashboard/api/ConnApi.dart';
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
+import 'package:admin_dashboard/services/notifications_services.dart';
 
 import 'package:flutter/material.dart';
+
+import '../models/http/Auth_response.dart';
 
 //se crea un numerador de posibilidades
 enum AuthStatus { checking, authenticated, notAuthenticated }
@@ -12,6 +15,7 @@ class AuthProvider with ChangeNotifier {
   String? _token;
   //Chequear el status del login
   AuthStatus authStatus = AuthStatus.checking;
+  Usuario? user;
   AuthProvider() {
     isAuthenticated();
   }
@@ -43,9 +47,17 @@ class AuthProvider with ChangeNotifier {
     };
 
     ConnApi.post('/usuarios/', data).then((json) {
-      print('json');
+      print(json);
+      //aca indico donde tiene que ir para ver el modelo
+      final authResponse = AuthResponse.fromMap(json);
+      user = authResponse.usuario;
+      authStatus = AuthStatus.authenticated;
+      LocalStorage.prefs.setString('token', authResponse.token);
+      NavigationService.replaceTo(Flurorouter.dashboardRoute);
+      notifyListeners();
     }).catchError((e) {
       print('Error en: $e');
+      NotificationsService.showSnackbarError('Error en el registro');
       //Mostrar un mensaje de error
     });
 
@@ -60,6 +72,7 @@ class AuthProvider with ChangeNotifier {
     // ignore: todo
     //TODO: Guardar token en lugar seguro y tiene que ir al dashboard
     //authStatus = AuthStatus.authenticated;
+
     //notifyListeners();
     // authStatus = AuthStatus.authenticated;
     // isAuthenticated();

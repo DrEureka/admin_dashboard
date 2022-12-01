@@ -10,11 +10,11 @@ class RegisterFormProvider extends ChangeNotifier {
 
   validateForm() {
     if (formkey.currentState!.validate()) {
-      print('Form Validado');
+      print('Form true');
 
       return true;
     } else {
-      // print('Form Invalido');
+      print('Form Invalido');
       return false;
     }
   }

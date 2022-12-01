@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/services/notifications_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:admin_dashboard/api/ConnApi.dart';
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
         title: 'Admin Dashboard',
         initialRoute: Flurorouter.rootRoute,
         onGenerateRoute: Flurorouter.router.generator,
+        //notificaciones de errores para el usuario
+        scaffoldMessengerKey: NotificationsService.messengerKey,
         navigatorKey: NavigationService.navigatorKey,
         builder: (_, child) {
           final authProvider = Provider.of<AuthProvider>(context);
